@@ -76,5 +76,15 @@ def entra_cliente(produto_cliente:dict, cliente:dict):
             print(f' -| Login realizado. Bem-vindo *_- {cliente["nome"]} -_* |-')
             print('=-' * 25)
 
-        if(achou == False):
+        while(achou == False):
             print('-x Login ou senha incorreta x-')
+            print('            __-¨-¨-= LOGIN =-¨-__')
+            print('                       º              ')
+            login = input('Digite seu e-mail: ')
+            senha = input('Digite sua senha: ')
+            print('=-' * 25)
+
+            if (cliente["email"] == login and cliente["senha"] == senha):
+                achou = True
+                print(f' -| Login realizado. Bem-vindo *_- {cliente["nome"]} -_* |-')
+                print('=-' * 25)

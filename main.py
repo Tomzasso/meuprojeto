@@ -24,14 +24,14 @@ while(op != 0):
 
     if(op == 1):
         op_login_cliente = -1
-        cl.entra_cliente(produto_cliente, cliente, op)
+        cl.entra_cliente(produto_cliente, cliente)
         while(op_login_cliente != 0):
             menu.menu_principal_cliente()
 
             op_login_cliente = int(input('Digite sua opção: '))
             print('=-' * 25)
 
-            if(op_login_cliente < 0 or op_login_cliente > 2):
+            if(op_login_cliente < 0 or op_login_cliente > 3):
                 print('-x Opção inválida. x-')
                 op_login_cliente = int(input('Digite sua opção: '))
                 print('=-' * 25)
@@ -55,22 +55,34 @@ while(op != 0):
 
                 cliente["senha"] = senha_nova
                 print('- senha atualizada. -')
-                if(op_login_cliente == 2):
-                    produto_busca = input('Pesquisar: ')
-                    bs.buscar(produto_vendedor, produto_busca)
-                    comp = input('Deseja comprar? ')
-                    if(comp == 'sim' and comp == 's' and comp == 'ss'):
-                        comprou = input('Digite o código do produto: ')
-                        for remove in produto_vendedor:
-                            if(remove == comprou):
-                                produto_cliente[comprou] = remove
-                                produto_vendedor.pop(comprou)
-                            else:
-                                print('código inválido. ')
-                    if(comp == 'não' and comp == 'nao' and comp == 'n'):
-                        menu.menu_principal_cliente()
-                        op_login_cliente = int(input('Digite sua opção: '))
-                        print('=-' * 25)
+            elif(op_login_cliente == 2):
+                produto_busca = input('Pesquisar: ')
+                bs.buscar(produto_vendedor, produto_busca)
+                comp = input('Deseja comprar? ')
+                if(comp == 'sim' or comp == 's'or comp == 'ss'):
+                    comprou = input('Digite o código do produto: ')
+                    for remove in produto_vendedor.keys():
+                        if(remove == comprou):
+                            produto_cliente[remove] = produto_vendedor[comprou]
+                            produto_vendedor.pop(comprou)
+                            print('Produto comprado.')
+                            break
+                        else:
+                            print('código inválido. ')
+                            break
+                if(comp == 'não' or comp == 'nao' or comp == 'n'):
+                    menu.menu_principal_cliente()
+                    op_login_cliente = int(input('Digite sua opção: '))
+                    print('=-' * 25)
+
+            elif(op_login_cliente == 3):
+                for z, x in produto_cliente.items():
+                    print(
+                        f'Codigo: {z}\nNome do produto: {x[0]}\nMarca do produto: {x[1]}\nEstado: {x[2]}\nDescrição: {x[3]}\nPreço: {x[4]}\nQuantidade: {x[5]}')
+                    print('=-' * 25)
+                if (produto_vendedor == {} or produto_vendedor == { }):
+                    print('Produtos indisponíveis.')
+                    print('=-' * 25)
 
     if(op == 2):
         op_login_vendedor = -1
@@ -162,7 +174,7 @@ while(op != 0):
                     print('Esse código não tem três números. ')
                     cod = input('Crie um código para o produto: ')
 
-                produto_vendedor[nome_produto] = [marca, nv, descr, preco, qntd, cod]
+                produto_vendedor[cod] = [nome_produto, marca, nv, descr, preco, qntd]
 
                 print(f'Nome do produto: {nome_produto}\nMarca do produto: {marca}\nEstado de uso: {nv}\nDescrição do Produto: {descr}\nPreço: {preco}\nQuantidade(s): {qntd}')
                 print('=-' * 25)
@@ -235,5 +247,8 @@ while(op != 0):
 
             elif(op_login_vendedor == 6):
                 for z, x in produto_vendedor.items():
-                    print(f'Nome do produto: {z}\nMarca do produto: {x[0]}\nEstado de uso: {x[1]}\nDescrição do Produto: {x[2]}\nPreço: {x[3]}\nQuantidade(s): {x[4]}')
-                print('=-' * 25)
+                    print(f'Codigo: {z}\nNome do produto: {x[0]}\nMarca do produto: {x[1]}\nEstado: {x[2]}\nDescrição: {x[3]}\nPreço: {x[4]}\nQuantidade: {x[5]}')
+                    print('=-' * 25)
+                if(produto_vendedor == {} or produto_vendedor == { }):
+                    print('Produtos indisponíveis.')
+                    print('=-' * 25)

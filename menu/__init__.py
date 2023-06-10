@@ -20,4 +20,5 @@ def menu_principal_cliente():
     print('0 - Sair da conta. ')
     print('1 - Atualizar a senha. ')
     print('2 - Buscar produto. ')
+    print('3 - Listar seus produtos. ')
     print('=-' * 25)

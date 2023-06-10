@@ -6,8 +6,11 @@ def entra_vendedor(produto_vendedor: dict, vendedor: dict):
     print('1 - Cadastrar.')
     print('2 - Login. ')
     print('=-' * 25)
-
     op = int(input('Digite a opção: '))
+
+    while (op != 0 and op != 1 and op != 2):
+        print('- x x Opção inválida x x -')
+        op = int(input('Digite a opção desejada: '))
 
     if (op == 1):
         print('            __-¨-¨-= CADASTRO =-¨-¨__')
@@ -128,7 +131,7 @@ def entra_vendedor(produto_vendedor: dict, vendedor: dict):
         print('        __-¨-¨-= DADOS CADASTRADOS =-¨-__')
         print('                        º              ')
 
-    elif (op == 2):
+    if (op == 2):
         print('            __-¨-¨-= LOGIN =-¨-__')
         print('                       º              ')
         login = input('Digite seu e-mail: ')
