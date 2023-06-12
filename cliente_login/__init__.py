@@ -78,8 +78,6 @@ def entra_cliente(produto_cliente:dict, cliente:dict):
 
         while(achou == False):
             print('-x Login ou senha incorreta x-')
-            print('            __-¨-¨-= LOGIN =-¨-__')
-            print('                       º              ')
             login = input('Digite seu e-mail: ')
             senha = input('Digite sua senha: ')
             print('=-' * 25)

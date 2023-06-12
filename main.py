@@ -3,6 +3,7 @@ import decoracao as de
 import busca as bs
 import cliente_login as cl
 import vendedor_login as vl
+import chatgpt as cg
 
 cliente = {}
 vendedor = {}
@@ -58,8 +59,9 @@ while(op != 0):
             elif(op_login_cliente == 2):
                 produto_busca = input('Pesquisar: ')
                 bs.buscar(produto_vendedor, produto_busca)
-                comp = input('Deseja comprar? ')
-                if(comp == 'sim' or comp == 's'or comp == 'ss'):
+                menu.menu_produto()
+                opp = int(input('Digite a opção desejada: '))
+                if(opp == 1):
                     comprou = input('Digite o código do produto: ')
                     for remove in produto_vendedor.keys():
                         if(remove == comprou):
@@ -70,10 +72,9 @@ while(op != 0):
                         else:
                             print('código inválido. ')
                             break
-                if(comp == 'não' or comp == 'nao' or comp == 'n'):
-                    menu.menu_principal_cliente()
-                    op_login_cliente = int(input('Digite sua opção: '))
-                    print('=-' * 25)
+                elif(opp == 2):
+                    descricao = input('Digite o código do produto. ')
+                    print(cg.consultarchatgpt(produto_vendedor[descricao][0]))
 
             elif(op_login_cliente == 3):
                 for z, x in produto_cliente.items():

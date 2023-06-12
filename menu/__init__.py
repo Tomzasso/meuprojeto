@@ -22,3 +22,8 @@ def menu_principal_cliente():
     print('2 - Buscar produto. ')
     print('3 - Listar seus produtos. ')
     print('=-' * 25)
+
+def menu_produto():
+    print("1 - Comprar. ")
+    print('2 - Consultar descrição. ')
+    print('=-' * 25)

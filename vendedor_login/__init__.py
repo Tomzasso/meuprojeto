@@ -145,5 +145,14 @@ def entra_vendedor(produto_vendedor: dict, vendedor: dict):
             print(f' -| Login realizado. Bem-vindo *_- {vendedor["nome"]} -_* |-')
             print('=-' * 25)
 
-        elif (achou == False):
+        while (achou == False):
             print('E-mail ou senha incorreto.')
+            print('=-' * 25)
+            login = input('Digite seu e-mail: ')
+            senha = input('Digite sua senha: ')
+            print('=-' * 25)
+
+            if (vendedor["e-mail"] == login and vendedor["senha"] == senha):
+                achou = True
+                print(f' -| Login realizado. Bem-vindo *_- {vendedor["nome"]} -_* |-')
+                print('=-' * 25)
