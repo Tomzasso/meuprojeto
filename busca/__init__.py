@@ -21,7 +21,7 @@ def buscar(produto:dict, busca):
         for cod, info in produto.items():
             if (str(info).find(busca) >= 0):
                 print(
-                    f'Código: {cod}'
+                    f'Código: {cod}\n'
                     f'Nome do produto: {info[0]}\n'
                     f'Marca do produto: {info[1]}\n'
                     f'Estado de uso: {info[2]}\n'

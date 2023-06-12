@@ -23,8 +23,15 @@ def entra_vendedor(produto_vendedor: dict, vendedor: dict):
             cadastro = input('Digite o E-mail novamente: ')
             print('=-' * 25)
 
+        exist = cadastro in vendedor.values()
+        while (exist == True):
+            print('E-mail já existente. ')
+            cadastro = input('Digite um novo e-mail: ')
+            print('=-' * 25)
+
         vendedor['e-mail'] = cadastro
 
+        print('-x A senha deve conter 7 a 10 caracteres. x-')
         senha_cadastro = input('Senha: ')
         print('=-' * 25)
 

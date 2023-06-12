@@ -137,7 +137,7 @@ while(op != 0):
                     marca = input('Digite novamente: ')
                     print('=-' * 25)
 
-                nv = input('Estado de uso (NOVO ou USADO): ')
+                nv = input('Estado de uso (novo ou usado): ')
                 print('=-' * 25)
 
                 while(nv != 'novo' and nv != 'usado'):
